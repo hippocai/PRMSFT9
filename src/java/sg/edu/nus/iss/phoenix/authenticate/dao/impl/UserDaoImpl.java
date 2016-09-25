@@ -451,6 +451,7 @@ public class UserDaoImpl implements UserDao {
 					DBCommon.DB_URL , DBCommon.DB_USER,
 					DBCommon.DB_PASSWORD);
 		} catch (SQLException e) {
+                    e.printStackTrace();
 		}
 		return conn;
 	}
