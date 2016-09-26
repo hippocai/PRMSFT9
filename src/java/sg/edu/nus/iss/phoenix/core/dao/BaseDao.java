@@ -126,7 +126,7 @@ public class BaseDao {
 		this.resultClass=cls;
 	}
 	
-	protected BaseDao(){
+	public BaseDao(){
 		
 	}
 	
