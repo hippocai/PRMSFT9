@@ -109,28 +109,28 @@ public class BaseDao {
 		}
 		return beanMap;
 	}
-	protected void setTableName(String _tableName){
+	public void setTableName(String _tableName){
 		this.tableName=_tableName;
 	}
 	
-	protected void nameMap(String BeanFieldName,String DBColumnName){
+	public void nameMap(String BeanFieldName,String DBColumnName){
 		bean2DBNameMap.put(BeanFieldName, DBColumnName);
 		db2BeanNameMap.put(DBColumnName, BeanFieldName);
 	}
 	
-	protected void setIdField(String idField){
+	public void setIdField(String idField){
 		this.idField=idField;
 	}
 	
-	protected void setResultClass(Class cls){
+	public void setResultClass(Class cls){
 		this.resultClass=cls;
 	}
 	
-	protected BaseDao(){
+	public BaseDao(){
 		
 	}
 	
-	protected boolean insert(Object bean){
+	public boolean insert(Object bean){
 		Map<String,String>beanMap=this.transBean2Map(bean);
 		Map<String,String>map2Insert=this.transferBeanMap2DBMap(beanMap);
 		map2Insert.remove(this.idField);
@@ -146,7 +146,7 @@ public class BaseDao {
 	}
 	
 
-	protected boolean delete(Map<String,String>query){
+	public boolean delete(Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
 		try {
@@ -164,7 +164,7 @@ public class BaseDao {
 		return false;
 	}
 	
-	protected boolean update(Map<String,String>newValue,Map<String,String>query){
+	public boolean update(Map<String,String>newValue,Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
 		Map<String,String>map2Update=this.transferBeanMap2DBMap(newValue);
@@ -191,7 +191,7 @@ public class BaseDao {
 		}
 		return (T)obj;
 	}
-	protected <T>List<T>select(Map<String,String>query){
+	public <T>List<T>select(Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
 		List<T> resultBeanList=new ArrayList<T>();
@@ -213,7 +213,7 @@ public class BaseDao {
 		return resultBeanList;
 	}
 	
-	protected DBOperator getOperator(){
+	public DBOperator getOperator(){
 		return this.operator;
 	}
 	
