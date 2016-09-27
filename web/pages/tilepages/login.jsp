@@ -11,7 +11,7 @@
 	<form action="${pageContext.request.contextPath}/nocturne/login"
 		method=post>
 		<h2>
-			<fmt:message key="title.login" />
+			<fmt:message key="title.login   " />
 		</h2>
 		<table >
 			<tr>
