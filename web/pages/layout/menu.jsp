@@ -38,6 +38,13 @@
 				</a>
 			</td>
 	</tr>
+         <tr>
+		<td>
+				<a href="<c:url value="/nocturne/manageuser"/>"> <fmt:message
+						key="caption.menu.manageuser" />
+				</a>
+			</td>
+	</tr>
 	</c:if>
 	<tr>
 		<td><a href="<c:url value="/nocturne/logout"/>"> <fmt:message

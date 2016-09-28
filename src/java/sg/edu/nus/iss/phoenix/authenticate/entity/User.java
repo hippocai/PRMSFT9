@@ -158,5 +158,16 @@ public class User implements Cloneable, Serializable {
 			cloned.roles.add(new Role(this.roles.get(0).getRole()));
 		return cloned;
 	}
+        
+       public String getRoleString() {
+                String roleString="";
+		if (this.roles != null) {
+                    for (Role role: this.roles) {
+                        roleString+=role.getRole()+";";
+			
+                    }
+		}
+		return roleString.substring(0, roleString.length()-1);
+	}
 
 }

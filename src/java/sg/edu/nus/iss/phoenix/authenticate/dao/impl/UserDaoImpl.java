@@ -289,7 +289,7 @@ public class UserDaoImpl implements UserDao {
 		boolean first = true;
 		StringBuffer sql = new StringBuffer("SELECT * FROM user WHERE 1=1 ");
 
-		if (valueObject.getId() != "") {
+		if (valueObject.getId()!=null&&valueObject.getId() != "") {
 			if (first) {
 				first = false;
 			}
