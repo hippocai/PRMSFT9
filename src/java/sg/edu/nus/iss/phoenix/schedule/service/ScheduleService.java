@@ -63,4 +63,9 @@ public class ScheduleService {
          ScheduleDao scheduleDao=new ScheduleDaoImpl();
          return scheduleDao.copySchedule(yearFrom, weekFrom, yearTo, weekTo, assignedBy);
      }
+     
+     public List<ProgramSlotBean>getProgramSlotByDate(String date){
+         ScheduleDao scheduleDao=new ScheduleDaoImpl();
+         return scheduleDao.getProgramSlotByDate(date);
+     }
 }

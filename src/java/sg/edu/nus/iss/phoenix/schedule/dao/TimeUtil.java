@@ -101,6 +101,20 @@ public class TimeUtil {
                Cal.add(Calendar.DATE, day);
                return Cal.getTime();
             }
+            
+            public static Date addHour(Date date,int hour){
+                Calendar Cal=java.util.Calendar.getInstance(); 
+               Cal.setTime(date);
+               Cal.add(Calendar.HOUR, hour);
+               return Cal.getTime();
+            }
+            
+            public static Date addMinute(Date date, int minute){
+                Calendar Cal=java.util.Calendar.getInstance(); 
+               Cal.setTime(date);
+               Cal.add(Calendar.MINUTE, minute);
+               return Cal.getTime();
+            }
 	public static int getDiscrepantDays(Date dateStart, Date dateEnd) {  
         return (int) ((dateEnd.getTime() - dateStart.getTime()) / 1000 / 60 / 60 / 24);  
     }  

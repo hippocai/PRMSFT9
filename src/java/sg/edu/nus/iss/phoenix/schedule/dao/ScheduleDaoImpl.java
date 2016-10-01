@@ -215,4 +215,13 @@ public class ScheduleDaoImpl implements ScheduleDao{
        }
        return true;
     }
+
+    @Override
+    public List<ProgramSlotBean> getProgramSlotByDate(String date) {
+        Map<String,String> map=new HashMap<>();
+       map.put("dateOfProgram",date);
+       List<ProgramSlotBean> programSlotBeans=programSlotDao.select(map);
+
+      return programSlotBeans;
+    }
 }

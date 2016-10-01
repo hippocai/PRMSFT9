@@ -20,6 +20,7 @@ public interface ScheduleDao {
      public boolean insertProgramSlot(ProgramSlotBean programSlotBean,String assignedBy);
      public ProgramSlotBean getProgramSlotById(String id);
      public boolean copySchedule(int yearFrom,int weekFrom,int yearTo,int weekTo,String assignedBy)throws IllegalArgumentException;
+     public List<ProgramSlotBean>getProgramSlotByDate(String date);
 
      
 }
