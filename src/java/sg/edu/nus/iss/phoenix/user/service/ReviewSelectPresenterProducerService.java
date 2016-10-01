@@ -15,6 +15,7 @@ import sg.edu.nus.iss.phoenix.authenticate.entity.Role;
 import sg.edu.nus.iss.phoenix.authenticate.entity.User;
 import sg.edu.nus.iss.phoenix.core.dao.DAOFactory;
 import sg.edu.nus.iss.phoenix.core.dao.DAOFactoryImpl;
+import sg.edu.nus.iss.phoenix.core.exceptions.NotFoundException;
 import sg.edu.nus.iss.phoenix.radioprogram.service.ReviewSelectProgramService;
 
 /**
@@ -49,7 +50,10 @@ public class ReviewSelectPresenterProducerService {
         User user = null;
         try {
             user = userDao.getObject(uid);
-        } catch (Exception e) {
+        }catch(NotFoundException e){
+            System.out.println("FUCKYOU!!!");
+        } 
+        catch (Exception e) {
             Logger.getLogger(ReviewSelectPresenterProducerService.class.getName()).log(Level.SEVERE, null, e);
         }
         return user;
