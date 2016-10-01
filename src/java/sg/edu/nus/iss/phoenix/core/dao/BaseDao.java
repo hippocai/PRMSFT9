@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import sg.edu.nus.iss.phoenix.schedule.service.JsonUtil;
 
 public class BaseDao {
 	private final DBOperator operator=DBOperator.getOperator();
@@ -110,7 +111,7 @@ public class BaseDao {
 		return beanMap;
 	}
 	public void setTableName(String _tableName){
-		this.tableName=_tableName;
+		this.tableName="`"+_tableName+"`";
 	}
 	
 	public void nameMap(String BeanFieldName,String DBColumnName){
@@ -204,6 +205,8 @@ public class BaseDao {
 				this.transMap2Bean(beanMap, resultObj);
 				resultBeanList.add(this.transferObj2Bean(resultObj));
 			}
+                       // System.out.println("From BaseDao:"+JsonUtil.getJson4JavaList(result).toString());
+                       // System.out.println("From BaseDao:"+JsonUtil.getJson4JavaList(resultBeanList).toString());
 			return resultBeanList;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -32,11 +32,11 @@ public class DBOperator {
 	private static DBOperator dbOperator=null;
 	//Create DBConnector
 	private static Connection getConnector() throws ClassNotFoundException, SQLException {
+       Connection conn = null;
 	    String driver = DBCommon.DB_DRIVER;
 	    String url = DBCommon.DB_URL;
 	    String username = DBCommon.DB_USER;
 	    String password = DBCommon.DB_PASSWORD;
-	    Connection conn = null;
 	    Class.forName(driver); 
 	    conn = (Connection) DriverManager.getConnection(url, username, password);
 	    return conn;
@@ -85,7 +85,7 @@ public class DBOperator {
 	private String generateTableField(Map<String,String>values){
 		String str="";
 		for(String key:values.keySet()){
-			str+=key+",";
+			str+="`"+key+"`,";
 		}
 		return str.substring(0, str.length()-1);
 	}
@@ -122,6 +122,7 @@ public class DBOperator {
 	        	++valueNum;
 	        	pstmt.setString(valueNum, values.get(key));
 	        }
+               // System.out.println(pstmt.);
 	        log.info("Execute SQL Comment:"+sql+"\nValues:"+generateTableField(values));
 	        affectedRows = pstmt.executeUpdate();
 	        pstmt.close();
@@ -214,13 +215,15 @@ public class DBOperator {
 		  }
 		  PreparedStatement pstmt;
 		  try {
-				LinkedHashMap<String,String>result=new LinkedHashMap<String,String>();
+				
 		        pstmt = (PreparedStatement)conn.prepareStatement(sql);
 		        log.info("Execute SQL Comment:"+sql);
+                        System.out.println(sql);
 		        ResultSet rs = pstmt.executeQuery();
 		        ResultSetMetaData metaData=rs.getMetaData();
 		        int col = metaData.getColumnCount();
 		        while (rs.next()) {
+                            LinkedHashMap<String,String>result=new LinkedHashMap<String,String>();
 		            for (int i = 1; i <= col; i++) {
 		            	result.put(metaData.getColumnName(i), rs.getString(i));
 		             }

@@ -24,6 +24,9 @@
 	<definition name="setuprpPage" extends="homePage">
 		<put-attribute name="body" value="/pages/tilepages/setuprp.jsp" />
 	</definition>
+        <definition name="setupschPage" extends="homePage">
+		<put-attribute name="body" value="/pages/tilepages/setupsch.jsp" />
+	</definition>
         <definition name="crudschedulePage" extends="homePage">
 		<put-attribute name="body" value="/pages/tilepages/crudschedule.jsp" />
 	</definition>

@@ -289,7 +289,7 @@ public class UserDaoImpl implements UserDao {
 		boolean first = true;
 		StringBuffer sql = new StringBuffer("SELECT * FROM user WHERE 1=1 ");
 
-		if (valueObject.getId() != "") {
+		if (valueObject.getId()!=null&&!valueObject.getId().equals("")) {
 			if (first) {
 				first = false;
 			}
@@ -316,13 +316,13 @@ public class UserDaoImpl implements UserDao {
 			if (first) {
 				first = false;
 			}
-			sql.append("AND role LIKE '")
+			sql.append("AND role LIKE '%")
 					.append(valueObject.getRoles().get(0).getRole())
 					.append("%' ");
 		}
 
 		sql.append("ORDER BY id ASC ");
-
+                System.out.println(sql.toString());
 		// Prevent accidential full table results.
 		// Use loadAll if all rows must be returned.
 		if (first)

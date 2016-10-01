@@ -5,10 +5,20 @@
  */
 package sg.edu.nus.iss.phoenix.schedule.dao;
 
+import java.util.List;
+import sg.edu.nus.iss.phoenix.schedule.entity.ProgramSlotBean;
+
 /**
  *
  * @author hippo
  */
-public class ScheduleDao {
-    
+public interface ScheduleDao {
+     public List<ProgramSlotBean> getProgramSlotByYearAndWeek(int year,int week);
+     public List<ProgramSlotBean> getCurrentWeekProgramSlots();
+     public List<String>getAllExistingYear();
+     public String deleteProgramSlotById(String id);
+     public boolean insertProgramSlot(ProgramSlotBean programSlotBean,String assignedBy);
+     public ProgramSlotBean getProgramSlotById(String id);
+
+     
 }
