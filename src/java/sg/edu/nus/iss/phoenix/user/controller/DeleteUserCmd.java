@@ -5,6 +5,7 @@
  */
 package sg.edu.nus.iss.phoenix.user.controller;
 
+import at.nocturne.api.Action;
 import at.nocturne.api.Perform;
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +20,7 @@ import sg.edu.nus.iss.phoenix.user.delegate.UserDelegate;
  *
  * @author Guo Qi
  */
+@Action("deleteuser")
 public class DeleteUserCmd implements Perform{
 
     @Override

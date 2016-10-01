@@ -50,7 +50,7 @@ public class UserService {
     //delete
     public void processDelete(String uid){
         try {
-            User user = new User();
+            User user = new User(uid);
             userDao.delete(user);
         } catch (NotFoundException e) {
                 // TODO Auto-generated catch block

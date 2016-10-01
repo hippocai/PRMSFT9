@@ -130,7 +130,8 @@ public class UserDaoImpl implements UserDao {
 			int rowcount = databaseUpdate(stmt);
 			if (rowcount != 1) {
 				// System.out.println("PrimaryKey Error when updating DB!");
-				throw new SQLException("PrimaryKey Error when updating DB!");
+				//throw new SQLException("PrimaryKey Error when updating DB!");
+                                valueObject=null;
 			}
 
 		} finally {
@@ -160,7 +161,7 @@ public class UserDaoImpl implements UserDao {
 			stmt.setString(3, valueObject.getRoles().get(0).getRole());
 
 			stmt.setString(4, valueObject.getId());
-
+                       System.err.println(stmt.toString()); 
 			int rowcount = databaseUpdate(stmt);
 			if (rowcount == 0) {
 				// System.out.println("Object could not be saved! (PrimaryKey not found)");
@@ -383,8 +384,9 @@ public class UserDaoImpl implements UserDao {
 				//valueObject.setRoles(roles);
 
 			} else {
-				// System.out.println("User Object Not Found!");
-				throw new NotFoundException("User Object Not Found!");
+				System.out.println("User Object Not Found!");
+				//throw new NotFoundException("User Object Not Found!");
+                                //valueObject=null;
 			}
 		} finally {
 			if (stmt != null)
