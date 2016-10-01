@@ -39,5 +39,7 @@ public class ScheduleDelegate {
          return scheduleService.getProgramSlotById(id);
      }
      
-     
+      public boolean copySchedule(int yearFrom,int weekFrom,int yearTo,int weekTo,String assignedBy)throws IllegalArgumentException{
+          return scheduleService.copySchedule(yearFrom, weekFrom, yearTo, weekTo, assignedBy);
+      }
 }

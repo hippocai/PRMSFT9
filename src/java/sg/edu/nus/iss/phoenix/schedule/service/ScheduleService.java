@@ -58,4 +58,9 @@ public class ScheduleService {
         ScheduleDao scheduleDao=new ScheduleDaoImpl();
         return scheduleDao.insertProgramSlot(programSlotBean, assignedBy);
     }
+    
+     public boolean copySchedule(int yearFrom,int weekFrom,int yearTo,int weekTo,String assignedBy)throws IllegalArgumentException{
+         ScheduleDao scheduleDao=new ScheduleDaoImpl();
+         return scheduleDao.copySchedule(yearFrom, weekFrom, yearTo, weekTo, assignedBy);
+     }
 }
