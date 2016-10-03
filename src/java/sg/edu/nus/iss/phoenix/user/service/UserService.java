@@ -27,7 +27,11 @@ public class UserService {
         userDao = factory.getUserDAO();
     }
     
-    //search
+    /**
+     * This function is used for search users
+     * @param user
+     * @return ArrayList<User>
+     */
     public ArrayList<User> searchUser(User user){
         ArrayList<User> list = new ArrayList<User>();
         try {
@@ -38,7 +42,10 @@ public class UserService {
         return list;
     }
     
-    //create
+    /**
+     * This method is used for processing create user function
+     * @param user 
+     */
     public void processCreate(User user){
         try {
             userDao.create(user);
@@ -47,7 +54,10 @@ public class UserService {
         }
     }
     
-    //delete
+    /**
+     * This method is used for processing delete user function
+     * @param uid 
+     */
     public void processDelete(String uid){
         try {
             User user = new User(uid);
@@ -62,7 +72,7 @@ public class UserService {
     }
     
     /**
-     * This method is used for process modify user function
+     * This method is used for processing modify user function
      * @param user 
      */
     public void processModify(User user){
