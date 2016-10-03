@@ -22,8 +22,8 @@ import sg.edu.nus.iss.phoenix.schedule.entity.ProgramSlotBean;
 import sg.edu.nus.iss.phoenix.schedule.service.JsonUtil;
 
 /**
- *
- * @author hippo
+ *Enter Schedule Details Controller
+ * @author CaiYicheng
  */
 @Action("enterschedule")
 public class EnterScheduleDetailsCmd implements Perform{
@@ -41,6 +41,13 @@ public class EnterScheduleDetailsCmd implements Perform{
         }
        return "/pages/insertscheduleresult.jsp";
     }
+    /**
+     * Execute the add/modify
+     * @param Str
+     * @param insert
+     * @param request
+     * @return 
+     */
     private String exec(String Str,boolean insert,HttpServletRequest request){
         try{
             String assignedByString=((User)request.getSession().getAttribute("user")).getId();
@@ -71,6 +78,13 @@ public class EnterScheduleDetailsCmd implements Perform{
         }
     }
     
+    /**
+     * Check if there is some confliction of the program slot time
+     * @param dateString
+     * @param startTimeString
+     * @param duration
+     * @return 
+     */
     private boolean isTimeOccupied(String dateString,String startTimeString,String duration){
         String timeString=dateString+" "+startTimeString;
         Date startTime=this.parseStringToDate(timeString);
@@ -93,6 +107,12 @@ public class EnterScheduleDetailsCmd implements Perform{
         return false;
     }
     
+    /**
+     * Add the duration to the date
+     * @param startTime
+     * @param duration
+     * @return 
+     */
     private Date addDuration(Date startTime,String duration){
           String[] durationArr=duration.split(":");
         int hour=Integer.parseInt(durationArr[0]);
@@ -101,6 +121,11 @@ public class EnterScheduleDetailsCmd implements Perform{
         endTime=TimeUtil.addMinute(endTime, minute);
         return endTime;
     }
+    /**
+     * Set the message info to the HttpServletRequest object
+     * @param msgString
+     * @param request 
+     */
     private void setInfo(String msgString,HttpServletRequest request){
         request.setAttribute("Message", msgString);
         if(msgString.contains("Error")){
@@ -110,10 +135,20 @@ public class EnterScheduleDetailsCmd implements Perform{
         }
     }
     
+    /**
+     * Check if the string is empty
+     * @param str
+     * @return 
+     */
     private boolean isStringEmpty(String str){
         return str==null||str.isEmpty();
     }
     
+    /**
+     * Check if the job is insert
+     * @param isInsertString
+     * @return 
+     */
     private boolean isInsert(String isInsertString){
         if(isInsertString==null){
             return true;
@@ -124,13 +159,12 @@ public class EnterScheduleDetailsCmd implements Perform{
             return true;
         }
     }
-    
-        private String parseDate2String(Date date){
-	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-	    	
-	    	return format.format(date);
-	    }
-        
+
+        /**
+         * Parse the time String such to the date object
+         * @param dateString yyyy-MM-dd HH:mm:ss
+         * @return 
+         */
          private Date parseStringToDate(String dateString){
 	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 	    	Date date = null;  
