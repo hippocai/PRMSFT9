@@ -1,4 +1,8 @@
 package sg.edu.nus.iss.phoenix.core.dao;
+/**
+ * One Query Conditions
+ * @author hippo
+ */
 public class QueryElement {
 	public static final String AND="AND";
 	public static final String OR="OR";

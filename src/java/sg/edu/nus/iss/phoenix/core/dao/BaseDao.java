@@ -13,6 +13,12 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import sg.edu.nus.iss.phoenix.schedule.service.JsonUtil;
 
+/**
+ * 
+ * @author CaiYicheng
+ * The Basic Crud Methods of DAO
+ * 
+ */
 public class BaseDao {
 	private final DBOperator operator=DBOperator.getOperator();
 	private String tableName="";
@@ -20,7 +26,12 @@ public class BaseDao {
 	private Map<String,String>bean2DBNameMap=new HashMap<String,String>();
 	private Map<String,String>db2BeanNameMap=new HashMap<String,String>();
 	private static final Logger log=Logger.getLogger(BaseDao.class);
-	private void transMap2Bean(Map<String, String> map, Object obj) {
+	/**
+         * Transfer The Map to the entity
+         * @param map
+         * @param obj 
+         */
+        private void transMap2Bean(Map<String, String> map, Object obj) {
 		try {
 			BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass());
 			PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
@@ -44,6 +55,11 @@ public class BaseDao {
 
 	}
 	
+        /**
+         * Transfer The Entity to map
+         * @param obj
+         * @return 
+         */
 	private Map<String, String> transBean2Map(Object obj) {
 
 		if (obj == null) {
@@ -110,27 +126,51 @@ public class BaseDao {
 		}
 		return beanMap;
 	}
+        /**
+         * Set the database table of the DAO
+         * @param _tableName 
+         */
 	public void setTableName(String _tableName){
 		this.tableName="`"+_tableName+"`";
 	}
 	
+        /**
+         * Set the mapping of the Bean field and the database field
+         * @param BeanFieldName
+         * @param DBColumnName 
+         */
 	public void nameMap(String BeanFieldName,String DBColumnName){
 		bean2DBNameMap.put(BeanFieldName, DBColumnName);
 		db2BeanNameMap.put(DBColumnName, BeanFieldName);
 	}
 	
+        /**
+         * Set the table ID field
+         * @param idField 
+         */
 	public void setIdField(String idField){
 		this.idField=idField;
 	}
 	
+        /**
+         * Set the result class
+         * @param cls 
+         */
 	public void setResultClass(Class cls){
 		this.resultClass=cls;
 	}
 	
+        /**
+         * constructor of the base dao
+         */
 	public BaseDao(){
 		
 	}
-	
+	/**
+         * Insert Execute
+         * @param bean
+         * @return 
+         */
 	public boolean insert(Object bean){
 		Map<String,String>beanMap=this.transBean2Map(bean);
 		Map<String,String>map2Insert=this.transferBeanMap2DBMap(beanMap);
@@ -145,8 +185,12 @@ public class BaseDao {
 		} 
 		return false;
 	}
-	
-
+        
+        /**
+         * Delete Execute
+         * @param query
+         * @return 
+         */
 	public boolean delete(Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
@@ -165,6 +209,12 @@ public class BaseDao {
 		return false;
 	}
 	
+        /**
+         * Update Execute
+         * @param newValue
+         * @param query
+         * @return 
+         */
 	public boolean update(Map<String,String>newValue,Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
@@ -184,7 +234,14 @@ public class BaseDao {
 		
 		return false;
 	}
-	@SuppressWarnings("unchecked")
+	/**
+         * Transfer the java object to the bean
+         * @param <T>
+         * @param obj
+         * @return
+         * @throws IllegalAccessException 
+         */
+        @SuppressWarnings("unchecked")
 	private <T>T transferObj2Bean(Object obj) throws IllegalAccessException{
 		Object testObj=(T)new Object();
 		if(testObj.getClass().getName().equals(obj.getClass().getName())){
@@ -192,6 +249,13 @@ public class BaseDao {
 		}
 		return (T)obj;
 	}
+        
+        /**
+         * Select Execute
+         * @param <T>
+         * @param query
+         * @return 
+         */
 	public <T>List<T>select(Map<String,String>query){
 		QueryMap queryMap=new QueryMap();
 		queryMap.addAllFromMap(this.transferBeanMap2DBMap(query));
@@ -216,6 +280,10 @@ public class BaseDao {
 		return resultBeanList;
 	}
 	
+        /**
+         * Get the DBOperator Object
+         * @return 
+         */
 	public DBOperator getOperator(){
 		return this.operator;
 	}
