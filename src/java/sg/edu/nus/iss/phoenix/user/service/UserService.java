@@ -61,7 +61,10 @@ public class UserService {
             }
     }
     
-    //modify
+    /**
+     * This method is used for process modify user function
+     * @param user 
+     */
     public void processModify(User user){
         try {
             userDao.save(user);
