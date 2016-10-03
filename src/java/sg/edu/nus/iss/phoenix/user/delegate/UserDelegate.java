@@ -16,21 +16,38 @@ import sg.edu.nus.iss.phoenix.user.service.UserService;
 public class UserDelegate {
     private UserService userService;
     
+    /**
+     * Delegate for processCreate() method in UserService
+     * @param user 
+     */
     public void processCreate(User user) {
         userService = new UserService();
         userService.processCreate(user);
     }
     
+    /**
+     * Delegate for processDelete() method in UserService
+     * @param uid 
+     */
     public void processDelete(String uid){
         userService = new UserService();
         userService.processDelete(uid);
     }
     
+    /**
+     * Delegate for processModify() method in UserService
+     * @param user 
+     */
     public void processModify(User user){
         userService = new UserService();
         userService.processModify(user);
     }
     
+    /**
+     * Delegate for searchUser() method in UserService
+     * @param user
+     * @return ArrayList<User>
+     */
     public ArrayList<User> searchUser(User user) {
         userService = new UserService();
         return userService.searchUser(user);

@@ -19,18 +19,35 @@ public class ReviewSelectPresenterProducerDelegate {
         reviewSelectPresenterProducerService = new ReviewSelectPresenterProducerService();
     }
     
+    /**
+     * Delegate for getAllUser() method in ReviewSelectPresenterProducerService
+     * @return List<User>
+     */
     public List<User> getAllUser(){
         return reviewSelectPresenterProducerService.getAllUser();
     }
     
+    /**
+     * Delegate for getAllPresenter() method in ReviewSelectPresenterProducerService
+     * @return List<User>
+     */
     public List<User> getAllPresenter() {
         return reviewSelectPresenterProducerService.getAllPresenters();
     }
     
+    /**
+     * Delegate for getAllProducer() method in ReviewSelectPresenterProducerService
+     * @return List<User>
+     */
     public List<User> getAllProducer() {
         return reviewSelectPresenterProducerService.getAllProducers();
     }
     
+    /**
+     * Delegate for getUserById() method in ReviewSelectPresenterProducerService
+     * @param uid
+     * @return User
+     */
     public User getUserById(String uid) {
         return reviewSelectPresenterProducerService.getUserById(uid);
     }

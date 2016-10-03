@@ -34,7 +34,10 @@ public class ReviewSelectPresenterProducerService {
         
     }
     
-    //get all the users
+    /**
+     * This method is used for getting all the users
+     * @return List<User>
+     */
     public List<User> getAllUser(){
         List<User> userData = null;
         try {
@@ -45,7 +48,11 @@ public class ReviewSelectPresenterProducerService {
         return userData;
     }
     
-    //get user by user ID
+    /**
+     * This method is used for getting users by user's id
+     * @param uid
+     * @return user
+     */
     public User getUserById(String uid){
         User user = null;
         try {
@@ -59,7 +66,10 @@ public class ReviewSelectPresenterProducerService {
         return user;
     }
     
-    //get all presenters
+    /**
+     * This method is used for getting all the presenters
+     * @return 
+     */
     public List<User> getAllPresenters(){
         List<User> presenterData = null;
         try {
@@ -75,7 +85,10 @@ public class ReviewSelectPresenterProducerService {
         return presenterData;
     }
     
-    //get all producers
+    /**
+     * This method is used for getting all the producers
+     * @return 
+     */
     public List<User> getAllProducers(){
         List<User> producerData = null;
         try {
