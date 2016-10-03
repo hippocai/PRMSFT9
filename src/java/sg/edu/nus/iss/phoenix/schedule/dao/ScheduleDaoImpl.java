@@ -199,4 +199,29 @@ public class ScheduleDaoImpl implements ScheduleDao{
            return null;
        }
     }
+
+    @Override
+    public boolean copySchedule(int yearFrom, int weekFrom, int yearTo, int weekTo, String assignedBy)throws IllegalArgumentException {
+       List<ProgramSlotBean> programSlotBeanTo=this.getProgramSlotByYearAndWeek(yearTo, weekTo);
+       if(programSlotBeanTo!=null&&programSlotBeanTo.size()>0){
+           throw new IllegalArgumentException("The week is not empty");
+       }
+       List<ProgramSlotBean>programSlotBeans=this.getProgramSlotByYearAndWeek(yearFrom, weekFrom);
+       for(ProgramSlotBean programSlotBean:programSlotBeans){
+           programSlotBean.setDateOfProgram(TimeUtil.changeDateWeek(programSlotBean.getDateOfProgram(), yearTo, weekTo));
+       }
+       for(ProgramSlotBean programSlotBean:programSlotBeans){
+           this.insertProgramSlot(programSlotBean, assignedBy);
+       }
+       return true;
+    }
+
+    @Override
+    public List<ProgramSlotBean> getProgramSlotByDate(String date) {
+        Map<String,String> map=new HashMap<>();
+       map.put("dateOfProgram",date);
+       List<ProgramSlotBean> programSlotBeans=programSlotDao.select(map);
+
+      return programSlotBeans;
+    }
 }

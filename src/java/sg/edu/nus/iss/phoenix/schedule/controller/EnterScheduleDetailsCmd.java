@@ -8,10 +8,15 @@ package sg.edu.nus.iss.phoenix.schedule.controller;
 import at.nocturne.api.Action;
 import at.nocturne.api.Perform;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sg.edu.nus.iss.phoenix.authenticate.entity.User;
+import sg.edu.nus.iss.phoenix.schedule.dao.TimeUtil;
 import sg.edu.nus.iss.phoenix.schedule.delegate.ScheduleDelegate;
 import sg.edu.nus.iss.phoenix.schedule.entity.ProgramSlotBean;
 import sg.edu.nus.iss.phoenix.schedule.service.JsonUtil;
@@ -43,7 +48,7 @@ public class EnterScheduleDetailsCmd implements Perform{
             psBean=(ProgramSlotBean)JsonUtil.getObject4JsonString(Str, ProgramSlotBean.class);
             String startTimeString=psBean.getStartTime();
             String durationString=psBean.getDuration();
-            String dateString=psBean.getDuration();
+            String dateString=psBean.getDateOfProgram();
             if(isTimeOccupied(dateString, startTimeString, durationString)){
                 return "Error:Confliction existed";
             }
@@ -66,11 +71,36 @@ public class EnterScheduleDetailsCmd implements Perform{
         }
     }
     
-    private boolean isTimeOccupied(String dateString,String startTime,String duration){
+    private boolean isTimeOccupied(String dateString,String startTimeString,String duration){
+        String timeString=dateString+" "+startTimeString;
+        Date startTime=this.parseStringToDate(timeString);
+      
+        Date endTime=this.addDuration(startTime, duration);
+        
+        long startTimeMills=startTime.getTime();
+        long endTimeMills=endTime.getTime();
+        List<ProgramSlotBean> programSlotOfTheDay=sd.getProgramSlotByDate(dateString);
+        for(ProgramSlotBean programSlot:programSlotOfTheDay){
+            Date startCheckTimeDate=this.parseStringToDate(programSlot.getDateOfProgram()+" "+programSlot.getStartTime());
+            Date endCheckTimeDate=this.addDuration(startTime, programSlot.getDuration());
+            if(startTimeMills>startCheckTimeDate.getTime()&&startTimeMills<endCheckTimeDate.getTime()){
+                return true;
+            }
+            if(endTimeMills>startCheckTimeDate.getTime()&&endTimeMills<endCheckTimeDate.getTime()){
+                return true;
+            }
+        }
         return false;
     }
     
-    
+    private Date addDuration(Date startTime,String duration){
+          String[] durationArr=duration.split(":");
+        int hour=Integer.parseInt(durationArr[0]);
+        int minute=Integer.parseInt(durationArr[1]);
+        Date endTime=TimeUtil.addHour(startTime, hour);
+        endTime=TimeUtil.addMinute(endTime, minute);
+        return endTime;
+    }
     private void setInfo(String msgString,HttpServletRequest request){
         request.setAttribute("Message", msgString);
         if(msgString.contains("Error")){
@@ -94,5 +124,24 @@ public class EnterScheduleDetailsCmd implements Perform{
             return true;
         }
     }
+    
+        private String parseDate2String(Date date){
+	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+	    	
+	    	return format.format(date);
+	    }
+        
+         private Date parseStringToDate(String dateString){
+	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+	    	Date date = null;  
+	    	try {  
+	    	    date = format.parse(dateString); 
+	    	    return date;
+	    	} catch (ParseException e) {  
+	    	    // TODO Auto-generated catch block  
+	    	    e.printStackTrace();  
+	    	    return null;
+	    	}
+	    }
     
 }

@@ -94,7 +94,46 @@ public class TimeUtil {
             public static String getCurrentDateString(){
                 return parseDate2String(new Date());
             }
-	
-
+            
+            public static Date addDay(Date date,int day){
+               Calendar Cal=java.util.Calendar.getInstance(); 
+               Cal.setTime(date);
+               Cal.add(Calendar.DATE, day);
+               return Cal.getTime();
+            }
+            
+            public static Date addHour(Date date,int hour){
+                Calendar Cal=java.util.Calendar.getInstance(); 
+               Cal.setTime(date);
+               Cal.add(Calendar.HOUR, hour);
+               return Cal.getTime();
+            }
+            
+            public static Date addMinute(Date date, int minute){
+                Calendar Cal=java.util.Calendar.getInstance(); 
+               Cal.setTime(date);
+               Cal.add(Calendar.MINUTE, minute);
+               return Cal.getTime();
+            }
+	public static int getDiscrepantDays(Date dateStart, Date dateEnd) {  
+        return (int) ((dateEnd.getTime() - dateStart.getTime()) / 1000 / 60 / 60 / 24);  
+    }  
+            public static String changeDateWeek(String dateString,int year,int week){
+            	Date theFirstDayOfWeekChangeTo=getFirstDayOfWeek(year, week);
+            	Date date2Change=parseStringToDate(dateString);
+            	//if(!theFirstDayOfWeekChangeTo.after(currentDate)){
+            		
+            	//}
+            	//throw new IllegalArgumentException("Can not copy to previous schedule");
+            	Date theFirstDayOfWeekChangeFrom=getFirstDayOfWeek(date2Change);
+            	if(!theFirstDayOfWeekChangeTo.after(getFirstDayOfWeek(new Date()))){
+            		throw new IllegalArgumentException("Can not copy to previous schedule");
+            	}
+            	int days=getDiscrepantDays(theFirstDayOfWeekChangeFrom, theFirstDayOfWeekChangeTo);
+            	System.out.println(days);
+            	Date newDate=addDay(date2Change,days);
+            	return parseDate2String(newDate);
+            	
+            }
 	
 }

@@ -5,6 +5,7 @@
  */
 package sg.edu.nus.iss.phoenix.schedule.delegate;
 
+import java.util.List;
 import net.sf.json.JSONArray;
 import sg.edu.nus.iss.phoenix.schedule.entity.ProgramSlotBean;
 import sg.edu.nus.iss.phoenix.schedule.service.ScheduleService;
@@ -39,5 +40,11 @@ public class ScheduleDelegate {
          return scheduleService.getProgramSlotById(id);
      }
      
-     
+      public boolean copySchedule(int yearFrom,int weekFrom,int yearTo,int weekTo,String assignedBy)throws IllegalArgumentException{
+          return scheduleService.copySchedule(yearFrom, weekFrom, yearTo, weekTo, assignedBy);
+      }
+      
+      public List<ProgramSlotBean> getProgramSlotByDate(String dateOfProgram){
+          return scheduleService.getProgramSlotByDate(dateOfProgram);
+      }
 }

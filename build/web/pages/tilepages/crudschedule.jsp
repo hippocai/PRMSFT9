@@ -32,7 +32,7 @@
 <script>
 var programSlotList=${programSlots};
 var allYears=${allYears};
-var selectedYear="${selectedYear}";
+var selectedYear=${selectedYear};
 var selectedWeek="${selectedWeek}";
 var grid;
 $(init);
@@ -52,6 +52,15 @@ function init(){
     $("#createScheduleBtn").bind("click",function(){
         window.location.href="<%=request.getContextPath()%>/nocturne/addEditSchedule";
     })
+    $("#copyScheduleBtn").bind("click",function(){
+        if($("#copyGroup").css("display")=="none"){
+           $("#copyGroup").css("display","block");
+        }else{
+            $("#copyGroup").css("display","none");
+        }
+    });
+    
+    $("#submitCopyScheduleBtn").bind("click",copyScheduleExec);
 }
 
 function initSearchArea(){
@@ -59,7 +68,14 @@ function initSearchArea(){
         var yearString=allYears[index];
         $("#yearSelect").append("<option value='"+yearString+"'>"+yearString+"</option>");
     }
-    $("#yearSelect option[text='"+selectedYear+"']").attr("selected", true)
+    var myDate=new Date(); 
+    var currentYear=myDate.getFullYear(); 
+    for(var year=currentYear;year<currentYear+100;++year){
+        var yearString=year+"";
+         $("#yearTo").append("<option value='"+yearString+"'>"+yearString+"</option>");
+    }
+   
+    $("#yearSelect").val(selectedYear);
     $("#weekInputTxt").val(selectedWeek);
 }
 
@@ -129,12 +145,23 @@ function initGrid(){
     grid = $.fn.dlshouwen.grid.init(gridOption);
     grid.load();
 }
+
+function copyScheduleExec(){
+   var yearFrom=$("#yearSelect").val();
+   var weekFrom=$("#weekInputTxt").val();
+   var yearTo=$("#yearTo").val();
+   var weekTo=$("#weekTo").val();
+   window.location.href="<%=request.getContextPath()%>/nocturne/copySchedule?yearFrom="+yearFrom+"&weekFrom="+weekFrom+
+                         "&yearTo="+yearTo+"&weekTo="+weekTo;
+}
 </script>
 <style type="text/css">
     #weekInputTxt{
         width:30px;
     }   
-    
+      #weekTo{
+        width:30px;
+    }  
 </style>
 <fmt:setBundle basename="ApplicationResources" />
 <title> <fmt:message key="title.crudrp"/> </title>
@@ -144,13 +171,19 @@ function initGrid(){
         <div id="operationGroup" style="margin-left: 15px;">
             <span>Operations:</span>
             <div id="createScheduleBtn" class="btn btn-xs btn-default" ><i class="fa fa-plus"></i>CreateSchedule</div>
-            <div id="copyScheduleBtn" class="btn btn-xs btn-default" ><i class="fa fa-repeat"></i>CopySchedule</div>
+          
+        </div>
         </div>
         <hr>
         <div id="searchGroup" style="margin-left: 15px;">
             <span>Year:</span><select id="yearSelect" class="select"></select>
             <span>Week:</span><input id="weekInputTxt" type="text"/>
             <div id="searchScheduleBtn" class="btn btn-xs btn-default" ><i class="fa fa-search"></i>Search</div>
+              <div id="copyScheduleBtn" class="btn btn-xs btn-default" ><i class="fa fa-repeat"></i>CopySchedule</div>
+              <div id="copyGroup" style="display:none">
+            <span>YearTo:</span><select id="yearTo" class="select"></select>
+            <span>WeekTo:</span><input id="weekTo" type="text"/>
+            <div id="submitCopyScheduleBtn" class="btn btn-xs btn-default" >Submit</div>
         </div>
          <hr>
         <div id="gridContainerDiv" class="dlshouwen-grid-container"></div>
