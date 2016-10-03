@@ -27,6 +27,7 @@ public class LoginCmd implements Perform {
         User user = new User();
         user.setId(req.getParameter("id"));
         user.setPassword(req.getParameter("password"));
+       // System.out.println("!!!!!!!PWD:"+req.getParameter("password"));
         user = ad.validateUserIdPassword(user);
         if (null != user) {
             req.getSession().setAttribute("user", user);
