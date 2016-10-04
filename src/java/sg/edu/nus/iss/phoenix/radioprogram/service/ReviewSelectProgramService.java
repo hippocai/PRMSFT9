@@ -12,6 +12,11 @@ import sg.edu.nus.iss.phoenix.radioprogram.entity.RadioProgram;
 public class ReviewSelectProgramService {
 	DAOFactoryImpl factory;
 	ProgramDAO rpdao;
+        
+        public ReviewSelectProgramService(ProgramDAO rpdao){
+            this.rpdao = rpdao;
+            
+        }
 
 	public ReviewSelectProgramService() {
 		super();

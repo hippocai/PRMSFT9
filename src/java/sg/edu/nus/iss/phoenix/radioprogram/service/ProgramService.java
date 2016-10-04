@@ -11,6 +11,10 @@ public class ProgramService {
 	DAOFactoryImpl factory;
 	ProgramDAO rpdao;
 
+    public ProgramService(ProgramDAO rpdao) {
+        this.rpdao = rpdao;
+    }
+
 	public ProgramService() {
 		super();
 		// TODO Auto-generated constructor stub

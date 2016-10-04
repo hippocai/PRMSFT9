@@ -1,3 +1,4 @@
+package sg.edu.nus.iss.phoenix.user.service;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,11 +21,11 @@ import sg.edu.nus.iss.phoenix.user.delegate.ReviewSelectPresenterProducerDelegat
  *
  * @author Guo Qi
  */
-public class ReviewSelectUserTest {
+public class ReviewSelectPresenterProducerServiceTest {
     
     ReviewSelectPresenterProducerDelegate reviewSelectPresenterProducerDelegate;
     
-    public ReviewSelectUserTest() {
+    public ReviewSelectPresenterProducerServiceTest() {
     }
     
     @BeforeClass

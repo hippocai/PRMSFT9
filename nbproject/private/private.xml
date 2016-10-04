@@ -3,29 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/schedule/entity/ProgramSlotBean.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/schedule/service/ScheduleService.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/dao/ProgramDAO.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/ScheduleServiceTest.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/service/ProgramService.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/controller/DeleteRadioProgramCmd.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/controller/AddEditUserCmd.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/controller/EnterUserDetailsCmd.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/CRUDUserTest.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/controller/EnterProgramDetailsCmd.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/web/pages/tilepages/crudrp.jsp</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/ReviewSelectUserTest.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/service/ReviewSelectPresenterProducerService.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/sg/edu/nus/iss/phoenix/radioprogram/service/ProgramServiceTest.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/sg/edu/nus/iss/phoenix/user/service/UserServiceTest.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/service/ReviewSelectProgramService.java</file>
             <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/service/UserService.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/dao/impl/ProgramDAOImpl.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/radioprogram/delegate/ProgramDelegate.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/schedule/dao/TimeUtil.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/web/pages/tilepages/setupuser.jsp</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/controller/ManageUserCmd.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/authenticate/dao/UserDao.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/user/delegate/UserDelegate.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/web/pages/tilepages/cruduser.jsp</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/core/dao/DBConstants.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/sg/edu/nus/iss/phoenix/radioprogram/service/ReviewSelectProgramServiceTest.java</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/test/sg/edu/nus/iss/phoenix/user/service/ReviewSelectPresenterProducerServiceTest.java</file>
             <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/authenticate/dao/impl/UserDaoImpl.java</file>
-            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/web/pages/setupuser.jsp</file>
+            <file>file:/C:/Users/Guo%20Qi/Documents/NetBeansProjects/PRMSFT9/src/java/sg/edu/nus/iss/phoenix/core/dao/DBCommon.java</file>
         </group>
     </open-files>
 </project-private>
