@@ -23,8 +23,8 @@ import sg.edu.nus.iss.phoenix.schedule.service.JsonUtil;
 import sg.edu.nus.iss.phoenix.user.delegate.ReviewSelectPresenterProducerDelegate;
 
 /**
- *
- * @author hippo
+ *Add schedule Controller
+ * @author CaiYicheng
  */
 @Action("addEditSchedule")
 public class AddEditScheduleCmd implements Perform{

@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import sg.edu.nus.iss.phoenix.schedule.delegate.ScheduleDelegate;
 
 /**
- *
- * @author hippo
+ *Delete Schedule Controller
+ * @author CaiYicheng
  */
 @Action("deleteSchedule")
 public class DeleteScheduleCmd implements Perform{

@@ -15,8 +15,8 @@ import sg.edu.nus.iss.phoenix.authenticate.entity.User;
 import sg.edu.nus.iss.phoenix.schedule.delegate.ScheduleDelegate;
 
 /**
- *
- * @author hippo
+ *Copy Schedule Controller
+ * @author CaiYicheng
  */
 @Action("copySchedule")
 public class CopyScheduleCmd implements Perform{
