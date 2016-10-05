@@ -96,11 +96,15 @@ public class EnterScheduleDetailsCmd implements Perform{
         List<ProgramSlotBean> programSlotOfTheDay=sd.getProgramSlotByDate(dateString);
         for(ProgramSlotBean programSlot:programSlotOfTheDay){
             Date startCheckTimeDate=this.parseStringToDate(programSlot.getDateOfProgram()+" "+programSlot.getStartTime());
-            Date endCheckTimeDate=this.addDuration(startTime, programSlot.getDuration());
+            Date endCheckTimeDate=this.addDuration(startCheckTimeDate, programSlot.getDuration());
+            //System.out.println(startCheckTimeDate.toString());
+            
             if(startTimeMills>startCheckTimeDate.getTime()&&startTimeMills<endCheckTimeDate.getTime()){
+                System.out.println("1");
                 return true;
             }
             if(endTimeMills>startCheckTimeDate.getTime()&&endTimeMills<endCheckTimeDate.getTime()){
+                System.out.println("2");
                 return true;
             }
         }

@@ -55,13 +55,16 @@ public class UserServiceTest {
             System.out.println("searchUser");
             ArrayList<User> userList = new ArrayList<>();
             User user = new User();
-            user.setAll("123", "guoqi","guoqi", "manager");
+            user.setAll("111", "guoqi","guoqi", "manager");
             UserDao userDao = mock(UserDao.class);
             when(userDao.searchMatching(user)).thenReturn(userList);
             UserService instance = new UserService();
+            instance.processCreate(user);
             ArrayList<User> result = instance.searchUser(user);
             
             assertEquals(result.get(0).getName(), "guoqi");
+            instance.processDelete("111");
+            
         } catch (SQLException ex) {
             Logger.getLogger(UserServiceTest.class.getName()).log(Level.SEVERE, null, ex);
         }
