@@ -23,23 +23,10 @@ import net.sf.json.JsonConfig;
 import net.sf.json.util.JSONUtils;
 import net.sf.json.util.PropertyFilter;
 
-/**
- * class name:JsonUtil <BR>
- * class description: 处理json的工具类 <BR>
- * Remark: <BR>
- * @version 1.00 2012-6-19
- * @author JFTT)FuXiaofeng
- */
 @SuppressWarnings("rawtypes")
 public class JsonUtil {
 
-	/**
-	 * Method name: getJsonString4JavaPOJO <BR>
-	 * Description: 将java对象转换成json字符串 <BR>
-	 * Remark: <BR>
-	 * @param javaObj
-	 * @return JSON字符串
-	 */
+	
 	public static String getJsonString4JavaPOJO(Object javaObj) {
 
 		JSONObject json;
@@ -59,14 +46,7 @@ public class JsonUtil {
 
 	}
 	
-	/**
-	 * Method name: getObject4JsonString <BR>
-	 * Description: 从一个JSON 对象字符格式中得到一个java对象 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @param pojoCalss
-	 * @return Java对象
-	 */
+
 	public static Object getObject4JsonString(String jsonString, Class pojoCalss) {
 		JSONUtils.getMorpherRegistry().registerMorpher(   
                 new DateMorpher(new String[] { "yyyy-MM-dd HH:mm:ss" }));  
@@ -76,13 +56,7 @@ public class JsonUtil {
 		return pojo;
 	}
 	
-    /**
-     * Method name: getJsonString4JavaList <BR>
-     * Description: 将一个JavaList转换成String <BR>
-     * Remark: <BR>
-     * @param objList
-     * @return JSON字符串
-     */
+
     public static String getJsonString4JavaList(List objList) {
     	JSONArray jsonArr;
     	JsonConfig cfg = new JsonConfig();
@@ -99,13 +73,7 @@ public class JsonUtil {
     	jsonArr = JSONArray.fromObject(objList, cfg);
     	return jsonArr.toString();
     }
-    /**
-     * Method name: getJson4JavaList <BR>
-     * Description: 将一个JavaList转换成jsON <BR>
-     * Remark: <BR>
-     * @param objList
-     * @return JSON字符串
-     */
+
     public static JSONArray getJson4JavaList(List objList) {
     	JSONArray jsonArr;
     	JsonConfig cfg = new JsonConfig();
@@ -123,14 +91,7 @@ public class JsonUtil {
     	return jsonArr;
     }
 
-	/**
-	 * Method name: getList4Json <BR>
-	 * Description: 从json对象集合表达式中得到一个java对象列表 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @param pojoClass
-	 * @return java.util.List
-	 */
+
 	@SuppressWarnings("unchecked")
 	public static List getList4Json(String jsonString, Class pojoClass) {
 		JSONUtils.getMorpherRegistry().registerMorpher(   
@@ -150,13 +111,7 @@ public class JsonUtil {
 
 	}
 
-	/**
-	 * Method name: getMap4Json <BR>
-	 * Description: 从json HASH表达式中获取一个map <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	@SuppressWarnings("unchecked")
 	public static Map getMap4Json(String jsonString) {
 		JSONUtils.getMorpherRegistry().registerMorpher(   
@@ -177,13 +132,7 @@ public class JsonUtil {
 		return valueMap;
 	}
 
-	/**
-	 * Method name: getObjectArray4Json <BR>
-	 * Description: 从json数组中得到相应Object数组 <BR>
-	 * Remark:实用性不佳,建议使用getList4Json <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	@Deprecated
 	public static Object[] getObjectArray4Json(String jsonString) {
 		JSONArray jsonArray = JSONArray.fromObject(jsonString);
@@ -191,13 +140,7 @@ public class JsonUtil {
 
 	}
 	
-	/**
-	 * Method name: getStringArray4Json <BR>
-	 * Description: 从json数组中解析出java字符串数组 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	public static String[] getStringArray4Json(String jsonString) {
 
 		JSONArray jsonArray = JSONArray.fromObject(jsonString);
@@ -209,13 +152,7 @@ public class JsonUtil {
 		return stringArray;
 	}
 
-	/**
-	 * Method name: getLongArray4Json <BR>
-	 * Description: 从json数组中解析出javaLong型对象数组 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	public static Long[] getLongArray4Json(String jsonString) {
 
 		JSONArray jsonArray = JSONArray.fromObject(jsonString);
@@ -226,13 +163,7 @@ public class JsonUtil {
 		return longArray;
 	}
 
-	/**
-	 * Method name: getIntegerArray4Json <BR>
-	 * Description: 从json数组中解析出java Integer型对象数组 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	public static Integer[] getIntegerArray4Json(String jsonString) {
 
 		JSONArray jsonArray = JSONArray.fromObject(jsonString);
@@ -243,13 +174,7 @@ public class JsonUtil {
 		return integerArray;
 	}
 
-	/**
-	 * Method name: getDoubleArray4Json <BR>
-	 * Description: 从json数组中解析出java Double型对象数组 <BR>
-	 * Remark: <BR>
-	 * @param jsonString
-	 * @return 
-	 */
+
 	public static Double[] getDoubleArray4Json(String jsonString) {
 
 		JSONArray jsonArray = JSONArray.fromObject(jsonString);

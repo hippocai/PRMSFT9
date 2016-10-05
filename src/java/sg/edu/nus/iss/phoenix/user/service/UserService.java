@@ -34,7 +34,7 @@ public class UserService {
     /**
      * This function is used for search users
      * @param user
-     * @return ArrayList<User>
+     * @return ArrayList()
      */
     public ArrayList<User> searchUser(User user){
         ArrayList<User> list = new ArrayList<User>();

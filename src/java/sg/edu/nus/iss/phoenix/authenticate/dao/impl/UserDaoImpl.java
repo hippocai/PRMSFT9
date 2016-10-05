@@ -402,7 +402,7 @@ public class UserDaoImpl implements UserDao {
 	 * 
 	 * @param stmt
 	 *            This parameter contains the SQL statement to be excuted.
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException
 	 */
 	protected List<User> listQuery(PreparedStatement stmt) throws SQLException {

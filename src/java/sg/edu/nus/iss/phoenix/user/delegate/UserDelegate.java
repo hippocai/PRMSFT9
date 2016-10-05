@@ -46,7 +46,7 @@ public class UserDelegate {
     /**
      * Delegate for searchUser() method in UserService
      * @param user
-     * @return ArrayList<User>
+     * @return ArrayList()
      */
     public ArrayList<User> searchUser(User user) {
         userService = new UserService();

@@ -50,7 +50,7 @@ public interface RoleDao {
 	 * This should only be used when target tables have only small amounts
 	 * of data.
 	 *
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException
 	 */
 	public abstract List<Role> loadAll() throws SQLException;
@@ -121,7 +121,7 @@ public interface RoleDao {
 	 * If table is empty, the return value is 0. This method should be used before calling
 	 * loadAll, to make sure table has not too many rows.
 	 *
-     * @return 
+     * @return Integer
      * @throws java.sql.SQLException
 	 */
 	public abstract int countAll() throws SQLException;
@@ -137,7 +137,7 @@ public interface RoleDao {
 	 *
 	 * @param valueObject  This parameter contains the class instance where search will be based.
 	 *                     Primary-key field should not be set.
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException 
 	 */
 	public abstract List<Role> searchMatching(Role valueObject)

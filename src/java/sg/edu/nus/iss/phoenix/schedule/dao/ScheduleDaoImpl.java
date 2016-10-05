@@ -79,7 +79,7 @@ public class ScheduleDaoImpl implements ScheduleDao{
      * Get program slot by year and week
      * @param year
      * @param week
-     * @return 
+     * @return List()
      */
      @Override
     public List<ProgramSlotBean> getProgramSlotByYearAndWeek(int year,int week){
@@ -116,7 +116,7 @@ public class ScheduleDaoImpl implements ScheduleDao{
     
     /**
      * Get the programslots of current week
-     * @return 
+     * @return List()
      */
     @Override
      public List<ProgramSlotBean> getCurrentWeekProgramSlots(){
@@ -144,7 +144,7 @@ public class ScheduleDaoImpl implements ScheduleDao{
     /**
      * Delete the programslot by id
      * @param id
-     * @return 
+     * @return String
      */
     @Override
     public String deleteProgramSlotById(String id) {
@@ -164,7 +164,7 @@ public class ScheduleDaoImpl implements ScheduleDao{
      * Insert the program slot
      * @param programSlotBean
      * @param assignedBy
-     * @return 
+     * @return boolean
      */
     @Override
     public boolean insertProgramSlot(ProgramSlotBean programSlotBean, String assignedBy) {
@@ -188,7 +188,7 @@ public class ScheduleDaoImpl implements ScheduleDao{
     /**
      * Get the annual schedule id by Year
      * @param year
-     * @return 
+     * @return String
      */
      public String getAnnualScheduleIdByYear(int year){
          Map<String,String>map=new HashMap<>();

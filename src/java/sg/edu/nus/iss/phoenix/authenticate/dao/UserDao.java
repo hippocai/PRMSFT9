@@ -15,7 +15,7 @@ public interface UserDao {
 	 * then this method can be overrided to return extended valueObject. NOTE:
 	 * If you extend the valueObject class, make sure to override the clone()
 	 * method in it!
-     * @return 
+     * @return User
 	 */
 	public abstract User createValueObject();
 
@@ -26,7 +26,7 @@ public interface UserDao {
 	 * as a parameter. Returned valueObject will be created using the
 	 * createValueObject() method.
      * @param id
-     * @return 
+     * @return User
      * @throws sg.edu.nus.iss.phoenix.core.exceptions.NotFoundException 
      * @throws java.sql.SQLException 
 	 */
@@ -57,7 +57,7 @@ public interface UserDao {
 	 * consume huge amounts of resources if table has lot's of rows. This should
 	 * only be used when target tables have only small amounts of data.
 	 * 
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException
 	 */
 	public abstract List<User> loadAll() throws SQLException;
@@ -136,7 +136,7 @@ public interface UserDao {
 	 * value is 0. This method should be used before calling loadAll, to make
 	 * sure table has not too many rows.
 	 * 
-     * @return 
+     * @return Integer
      * @throws java.sql.SQLException
 	 */
 	public abstract int countAll() throws SQLException;
@@ -153,7 +153,7 @@ public interface UserDao {
 	 * @param valueObject
 	 *            This parameter contains the class instance where search will
 	 *            be based. Primary-key field should not be set.
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException 
 	 */
 	public abstract List<User> searchMatching(User valueObject)

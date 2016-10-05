@@ -389,7 +389,7 @@ public class RoleDaoImpl implements RoleDao {
 	 * 
 	 * @param stmt
 	 *            This parameter contains the SQL statement to be excuted.
-     * @return 
+     * @return List()
      * @throws java.sql.SQLException
 	 */
 	protected List<Role> listQuery(PreparedStatement stmt) throws SQLException {

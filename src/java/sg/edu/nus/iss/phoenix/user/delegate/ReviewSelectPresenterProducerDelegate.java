@@ -21,7 +21,7 @@ public class ReviewSelectPresenterProducerDelegate {
     
     /**
      * Delegate for getAllUser() method in ReviewSelectPresenterProducerService
-     * @return List<User>
+     * @return List()
      */
     public List<User> getAllUser(){
         return reviewSelectPresenterProducerService.getAllUser();
@@ -29,7 +29,7 @@ public class ReviewSelectPresenterProducerDelegate {
     
     /**
      * Delegate for getAllPresenter() method in ReviewSelectPresenterProducerService
-     * @return List<User>
+     * @return List()
      */
     public List<User> getAllPresenter() {
         return reviewSelectPresenterProducerService.getAllPresenters();
@@ -37,7 +37,7 @@ public class ReviewSelectPresenterProducerDelegate {
     
     /**
      * Delegate for getAllProducer() method in ReviewSelectPresenterProducerService
-     * @return List<User>
+     * @return List()
      */
     public List<User> getAllProducer() {
         return reviewSelectPresenterProducerService.getAllProducers();

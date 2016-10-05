@@ -18,37 +18,37 @@ public interface ScheduleDao {
      * Get program slot by year and week
      * @param year
      * @param week
-     * @return 
+     * @return List()
      */
      public List<ProgramSlotBean> getProgramSlotByYearAndWeek(int year,int week);
     
      /**
       * Get all the program slots of current week
-      * @return 
+      * @return List()
       */
      public List<ProgramSlotBean> getCurrentWeekProgramSlots();
      /**
       * Get all existing year of Anual Schedule
-      * @return 
+      * @return List()
       */
      public List<String>getAllExistingYear();
      /**
       * Delete the program slot by ID
       * @param id
-      * @return 
+      * @return String
       */
      public String deleteProgramSlotById(String id);
      /**
       * Insert program slot
       * @param programSlotBean
       * @param assignedBy
-      * @return 
+      * @return boolean
       */
      public boolean insertProgramSlot(ProgramSlotBean programSlotBean,String assignedBy);
      /**
       * Get program slot by ID
       * @param id
-      * @return 
+      * @return ProgramSlotBean
       */
      public ProgramSlotBean getProgramSlotById(String id);
      /**
@@ -58,7 +58,7 @@ public interface ScheduleDao {
       * @param yearTo
       * @param weekTo
       * @param assignedBy
-      * @return
+      * @return boolean
       * @throws IllegalArgumentException 
       */
      public boolean copySchedule(int yearFrom,int weekFrom,int yearTo,int weekTo,String assignedBy)throws IllegalArgumentException;
@@ -66,7 +66,7 @@ public interface ScheduleDao {
      /**
       * Get the program slot by date
       * @param date
-      * @return 
+      * @return List()
       */
      public List<ProgramSlotBean>getProgramSlotByDate(String date);
 
